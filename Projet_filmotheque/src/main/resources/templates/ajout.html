@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajout Film</title>
+</head>
+<body> <div class="container">
+<h1>Saisir un nouveau Film</h1>
+<form action="/film/add" method="post" enctype="multipart/form-data">
+<p>
+<label for="titre" class="form-Label ">Titre du film : </label>
+<input type="text" pattern="[A-Z][a-zA-Z]*" name="titre" id="titre" class="form-control" required >
+<p th:if="${err}" style="color: red"   >Ce film existe déjà !</p>
+</p>
+<p>
+<label for="description" class="form-Label ">Description: </label> 
+<textarea rows="5" class="form-control" minlength="10"  name="description" required></textarea>
+</p>
+<p>
+<label for="annee" class="form-Label ">Annee parution: </label> 
+<input type="number" min="1940" th:max="${currentYear}" name="anneeparution" id="annee" class="form-control" required>
+</p>
+
+<label class="form-label">Photos:</label>
+<input type="file" name="file" accept="image/png image/jpeg" class="form-control"/>
+
+<p>
+<label for="categorie" class="form-Label ">Categorie : </label>
+<select name="categorie" class="form-select">
+<option
+th:each="cat : ${categories}"
+th:value="${cat.id}"
+th:text="${cat.nom}"></option>
+</select>
+
+</p>
+<p>
+<label for="acteurs" class="form-Label ">Acteurs : </label>
+<select name="acteurs" multiple size="3" required >
+	<option 
+	th:each="a:${acteurs}"
+	th:text="${a.nom+'   '+ a.prenom}"
+	th:value="${a.id}"
+	></option>
+</select>
+</p>
+<p>
+	<input type="submit" class="btn btn-outline-primary" value="Ajouter">
+</p>
+</form>
+</div>
+</body>
+</html>
+
+
+	

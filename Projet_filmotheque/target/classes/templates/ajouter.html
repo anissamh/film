@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Ajout Acteur</title>
+</head>
+<body> <div class="container">
+<h1>Saisir un nouveau Acteur</h1>
+<form action="/acteur/add" method="post">
+<p>
+<label for="titre" class="form-Label ">Nom: </label>
+<input type="text" name="nom" id="nom" class="form-control" required>
+</p>
+<p>
+<label for="description" class="form-Label ">Prenom: </label> 
+<input type="text" name="prenom" id="prenom" class="form-control" required>
+</p>
+<p>
+	<input type="submit" class="btn btn-outline-primary" value="Ajouter">
+</p>
+</form>
+</div>
+</body>
+</html>
+
+
+	
